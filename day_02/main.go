@@ -18,19 +18,19 @@ func main() {
 
     scanner := bufio.NewScanner(f)
 
-    sum := 0
-    lines_read := 0
+    var sum uint = 0;
+    var lines_read uint = 0
 
     for scanner.Scan() {
         game := scanner.Text()
-        validGame := cubes.Cube(scanner.Text())
-
-        if validGame {
-            sum++
+        result, err := cubes.Cube(game)
+        if err != nil {
+            log.Fatal(err)
         }
+        sum += result
 
         lines_read++
-        fmt.Printf("Input: %v , Result: %v, Sum: %v\n", game, validGame, sum)
+        fmt.Printf("Input: %v , Result: %v, Sum: %v\n", game, result, sum)
     }
 
     if err := scanner.Err(); err != nil {
