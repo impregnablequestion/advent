@@ -33,7 +33,7 @@ func main() {
         log.Fatal(err)
     }
 
-    result, err := parts.CalculateTotal(schematic)
+    result, err := parts.CalculateTotalGearRatios(schematic)
 
     if err != nil {
         log.Fatal(err)

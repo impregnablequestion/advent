@@ -36,6 +36,32 @@ func TestMain(t *testing.T) {
     }
 }
 
+func TestGears(t *testing.T) {
+    schematic := []string {
+        "467..114..",
+        "...*......",
+        "..35..633.",
+        "......#...",
+        "617*......",
+        ".....+.58.",
+        "..592.....",
+        "......755.",
+        "...$.*....",
+        ".664.598..",
+    }
+
+    var expected uint = 467835 
+
+    observed, err := CalculateTotalGearRatios(schematic)
+    if err != nil {
+        t.Fatalf("Error in function %v", err)
+    }
+
+    if expected != observed {
+        t.Fatalf("Wanted: %v, Got: %v", expected, observed)
+    }
+}
+
 func TestCases(t *testing.T) {
     cases := []test {
         {
